@@ -15,6 +15,7 @@ def nop():
 
 print(nop())      # => None
 
+# 对参数进行检查
 def my_abs(x):
   if not isinstance(x, (int, float)):
     raise TypeError('错误的操作参数')
@@ -28,3 +29,14 @@ def my_abs(x):
   else:
     return -x
 print(my_abs(True))
+
+# 函数返回多值
+import math
+
+def move (x, y, step, angle = 0):
+  nx = x + step * math.cos(angle)
+  ny = y + step * math.sin(angle)
+  return nx, ny
+
+x, y = move(0, 0, 60, math.pi / 3)
+print(x, y)
