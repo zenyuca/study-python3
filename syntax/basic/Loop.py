@@ -24,3 +24,11 @@ print(r.index(11))  # 获取范围中11的下标
 
 ls = list(range(10, 20, 2))   # 将范围转换成list（数组）
 print(ls)       # [10, 12, 14, 16, 18]
+
+# while 循环
+count = 0
+i = 0
+while i < 100:
+	count += i
+	i += 1
+print(count)
