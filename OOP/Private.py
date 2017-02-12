@@ -21,5 +21,5 @@ stu = Student('jack', 90)
 print(stu._Student__name)       # => jack
 print(stu.get_name())           # => jack
 # 当以“__”为前缀的属性，为私有属性
-# 外部不能同时实例直接访问
+# 外部不能通过实例直接访问
 print(stu.__name)     # => AttributeError: 'Student' object has no attribute '__name'
