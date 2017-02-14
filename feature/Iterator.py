@@ -1,12 +1,13 @@
+from collections import Iterable, Iterator
 # 迭代器，不光可以迭代 List 和 Tuple，也可以迭代 Dict 和 字符串
 
 # 可以被next()函数调用并不断返回下一个值的对象称为迭代器：Iterator。
 
 # 迭代 Dict
 d = {
-  'a': 1,
-  'b': 2,
-  'c': 3
+    'a': 1,
+    'b': 2,
+    'c': 3
 }
 
 # 打印结果：
@@ -14,14 +15,14 @@ d = {
 # c
 # a
 for key in d:
-  print(key)
+    print(key)
 
 # 打印结果：
 # 2
 # 3
 # 1
 for key in d:
-  print(d[key])
+    print(d[key])
 
 # 使用 enumerate 获取迭代的下标
 
@@ -29,7 +30,7 @@ for key in d:
 # index: 1, key: a
 # index: 2, key: b
 for i, key in enumerate(d):
-  print('index: %d, key: %s' % (i, key))
+    print('index: %d, key: %s' % (i, key))
 
 # 打印结果：
 # a
@@ -38,7 +39,7 @@ for i, key in enumerate(d):
 # d
 s = 'abcd'
 for ch in s:
-  print(ch)
+    print(ch)
 
 # 使用 enumerate 获取迭代的下标
 
@@ -47,21 +48,21 @@ for ch in s:
 # index: 2, ch: c
 # index: 3, ch: d
 for i, ch in enumerate(s):
-  print('index: %d, ch: %s' % (i, ch))
+    print('index: %d, ch: %s' % (i, ch))
 
 
 # 如何判断一个对象是可迭代对象呢？方法是通过collections模块的Iterable类型判断：
-from collections import Iterable, Iterator
 print(isinstance('abc', Iterable))      # => True
 print(isinstance([1, 2, 3], Iterable))  # => True
-print(isinstance({'a':1}, Iterable))    # => True
+print(isinstance({'a': 1}, Iterable))    # => True
 
-# 同时引用两个变量，遍历二维数组 
+# 同时引用两个变量，遍历二维数组
 for x, y in [[1, 2], [3, 4], [5, 6]]:
-  print(x, y)
+    print(x, y)
 
 for x, y in [(1, 2), [3, 4], [5, 6]]:
-  print(x, y)
+    print(x, y)
+
 
 def g():
     yield 1

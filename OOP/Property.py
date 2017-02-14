@@ -1,22 +1,23 @@
 # @property 将类的方法变成属性调用
 
+
 class Student(object):
 
-  @property
-  def name(self):
-    return self.__name
+    @property
+    def name(self):
+        return self.__name
 
-  @name.setter
-  def name(self, name):
-    if isinstance(name, str):
-      self.__name = name
-    else:
-      raise TypeError('name 应该是一个 String')
+    @name.setter
+    def name(self, name):
+        if isinstance(name, str):
+            self.__name = name
+        else:
+            raise TypeError('name 应该是一个 String')
 
-  # hello 属性为只读
-  @property
-  def hello(self):
-    print('Hello %s! Welcome to Python world!' % self.__name)
+    # hello 属性为只读
+    @property
+    def hello(self):
+        print('Hello %s! Welcome to Python world!' % self.__name)
 
 s = Student()
 s.name = 'Jack'       # 像属性调用一样的调用设置方法

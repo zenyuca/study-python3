@@ -1,9 +1,11 @@
 # 实例属性与类属性
 
+
 class Student(object):
-  name = 'Student'
-  def __init__(self, name):
-    self.name = name
+    name = 'Student'
+
+    def __init__(self, name):
+        self.name = name
 
 print(Student.name)     # => Student
 s = Student('jack')

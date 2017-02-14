@@ -3,19 +3,19 @@
 # for in 循环
 sum = 0
 for item in [1, 2, 3, 4, 5]:
-  sum += item
+    sum += item
 print(sum)
 
 count = 0
 for i in range(100):
-  count += (i + 1)
+    count += (i + 1)
 print(count)
 
 # class range(stop)
 # class range(start, stop[, step])
 sum = 0
 for x in range(10):
-  sum += x
+    sum += x
 print(sum)
 
 r = range(10, 20)   # 定义一个范围
@@ -29,6 +29,6 @@ print(ls)       # [10, 12, 14, 16, 18]
 count = 0
 i = 0
 while i < 100:
-	count += i
-	i += 1
+    count += i
+    i += 1
 print(count)
