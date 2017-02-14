@@ -12,19 +12,21 @@ print(g)            # => <generator object <genexpr> at 0x7f04e7d5b3b8>   不能
 print(type(g))      # => <class 'generator'>
 
 # 通过 next 函数边循环边获取值
-print(next(g))      # => 0  
+print(next(g))      # => 0
 print(next(g))      # => 1
 print('')
 
 # 1 1 2 3 5 8 13
-def fib (max):
-  l = []
-  n,a,b = 0,0,1
-  while n < max:
-    l.append(b)
-    a,b = b,a + b
-    n = n + 1
-  return l
+
+
+def fib(max):
+    l = []
+    n, a, b = 0, 0, 1
+    while n < max:
+        l.append(b)
+        a, b = b, a + b
+        n = n + 1
+    return l
 
 print(fib(10))
 
@@ -37,13 +39,15 @@ print(fib(10))
 # b = t[1]
 
 # 自定义一个生成器
-def fib (max):
-  n,a,b = 0,0,1
-  while n < max:
-    yield b
-    a,b = b,a + b
-    n = n + 1
-  return 'done'
+
+
+def fib(max):
+    n, a, b = 0, 0, 1
+    while n < max:
+        yield b
+        a, b = b, a + b
+        n = n + 1
+    return 'done'
 
 g = fib(9)
 # 只要一个函数里面包含 yield ，那么这就是一个 generator
@@ -54,20 +58,21 @@ print(next(g))
 print(next(g))
 
 for n in g:
-  print(n)
+    print(n)
 
-l = zip('abcd', [1,2,3,4], {'a': 1, 'b': 2, 'c': 3})
+l = zip('abcd', [1, 2, 3, 4], {'a': 1, 'b': 2, 'c': 3})
 print(list(l))
 
-def triangles ():
-  l = [1]
-  while True:
-    yield l
-    l = [1] + [x + y for x, y in zip(l[1:], l[:-1])] + [1]
+
+def triangles():
+    l = [1]
+    while True:
+        yield l
+        l = [1] + [x + y for x, y in zip(l[1:], l[:-1])] + [1]
 
 n = 0
 for t in triangles():
-  print(t)
-  n = n + 1
-  if n == 15:
-    break
+    print(t)
+    n = n + 1
+    if n == 15:
+        break

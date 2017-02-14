@@ -7,10 +7,11 @@ print(sorted(ls))         # => [-2, -1, 0, 1, 3]
 
 ls = ['abc', '04444', '-21', '0s']
 print(sorted(ls))         # => ['-2', '0', '0', 'abc']
-print(sorted(ls, key = len))                    # => ['0s', 'abc', '-21', '04444']
-print(sorted(ls, reverse = True, key = len))    # => ['04444', 'abc', '-21', '0s']
+# => ['0s', 'abc', '-21', '04444']
+print(sorted(ls, key=len))
+print(sorted(ls, reverse=True, key=len))    # => ['04444', 'abc', '-21', '0s']
 
 
 # key 指定排序算法
 ls = [-1, 0, -2, 3, 1]
-print(sorted(ls, key = abs))         # => [0, -1, 1, -2, 3]
+print(sorted(ls, key=abs))         # => [0, -1, 1, -2, 3]

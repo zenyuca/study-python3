@@ -1,70 +1,75 @@
 # 默认参数
-def power (x, n = 2):
-  return x ** n
+def power(x, n=2):
+    return x ** n
 
 print(power(2))     # => 4
 print(power(2, 4))  # => 16
 
-def add_end (L = []):
-  L.append('END')
-  return L
 
-print(add_end([1,2,3]))   # => [1, 2, 3, 'END']
+def add_end(L=[]):
+    L.append('END')
+    return L
+
+print(add_end([1, 2, 3]))   # => [1, 2, 3, 'END']
 # 默认参数一定指向不变对象
 print(add_end())          # => ['END']
 print(add_end())          # => ['END', 'END']
 
-def add_end (L = None):
-  if L is None:
-    L = []
-  L.append('END')
-  return L
 
-print(add_end([1,2,3]))   # => [1, 2, 3, 'END']
+def add_end(L=None):
+    if L is None:
+        L = []
+    L.append('END')
+    return L
+
+print(add_end([1, 2, 3]))   # => [1, 2, 3, 'END']
 # 默认参数一定指向不变对象
 print(add_end())          # => ['END']
 print(add_end())          # => ['END']
 
 # 可变参数
-def calc (*args):
-  x = []
-  y = []
-  print(type(args))     # => <class 'tuple'>
-  for n in args:
-    if isinstance(n, (int, float)):
-      x.append(n)
-    if isinstance(n, str):
-      y.append(n)
-  return x, y
+
+
+def calc(*args):
+    x = []
+    y = []
+    print(type(args))     # => <class 'tuple'>
+    for n in args:
+        if isinstance(n, (int, float)):
+            x.append(n)
+        if isinstance(n, str):
+            y.append(n)
+    return x, y
 
 numberList, stringList = calc(1, 2, '3', 4, '5')
 print(numberList, stringList)     # => [1, 2, 4] ['3', '5']
 
 
 # 关键字參数
-def person (name, age, **kw):
-  print(type(kw))     # => <class 'dict'>
-  print('city' in kw)
-  print('name:', name, ',age:', age, ',other:', kw)
+def person(name, age, **kw):
+    print(type(kw))     # => <class 'dict'>
+    print('city' in kw)
+    print('name:', name, ',age:', age, ',other:', kw)
 
-person('Jack', 22, city = 'chengdu')
+person('Jack', 22, city='chengdu')
 
 other = {'City': 'Asla', 'Gender': 'Man'}
-person('Bluce', 32, city = other['City'], gender = other['Gender'])
+person('Bluce', 32, city=other['City'], gender=other['Gender'])
 
-def person (*args, **kw):
-  s = ''
-  for arg in args:
-    if isinstance(arg, (int, float)):
-      arg = str(arg)
-    s += arg + ', '
-  s += '{'
-  for key in kw:
-    s += key + ': ' + kw[key] + ', '
-  s += '}'
-  print(s)
 
-person('Jack', 22, '180cm', city = 'chengdu', gender = 'man')
+def person(*args, **kw):
+    s = ''
+    for arg in args:
+        if isinstance(arg, (int, float)):
+            arg = str(arg)
+        s += arg + ', '
+    s += '{'
+    for key in kw:
+        s += key + ': ' + kw[key] + ', '
+    s += '}'
+    print(s)
+
+person('Jack', 22, '180cm', city='chengdu', gender='man')
 
 
 # 小结
@@ -80,5 +85,3 @@ person('Jack', 22, '180cm', city = 'chengdu', gender = 'man')
 # 使用*args和**kw是Python的习惯写法，当然也可以用其他参数名，但最好使用习惯用法。
 # 命名的关键字参数是为了限制调用者可以传入的参数名，同时可以提供默认值。
 # 定义命名的关键字参数在没有可变参数的情况下不要忘了写分隔符*，否则定义的将是位置参数。
-
-
